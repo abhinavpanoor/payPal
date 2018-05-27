@@ -1,0 +1,1530 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>May 27, 2018 06:18:39 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>Smoke</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>15</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>89</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:32:59 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:32:59 PM</span>
+	<span class='label end-time'>May 12, 2018 07:33:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+801ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:33:03 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/152157820.jpg" width="10%" src="./../reports/images/152157820.jpg" data-src="./../reports/images/152157820.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:33:03 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:33:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:33:04 PM</span>
+	<span class='label end-time'>May 12, 2018 07:33:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+811ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:33:07 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/35945359.jpg" width="10%" src="./../reports/images/35945359.jpg" data-src="./../reports/images/35945359.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:33:07 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:37:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:37:07 PM</span>
+	<span class='label end-time'>May 12, 2018 07:37:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='6'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+821ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:37:11 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/836827666.jpg" width="10%" src="./../reports/images/836827666.jpg" data-src="./../reports/images/836827666.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:37:11 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:37:12 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:37:12 PM</span>
+	<span class='label end-time'>May 12, 2018 07:37:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 8s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='8'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+826ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:37:19 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/543957081.jpg" width="10%" src="./../reports/images/543957081.jpg" data-src="./../reports/images/543957081.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:37:20 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:38:23 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:38:23 PM</span>
+	<span class='label end-time'>May 12, 2018 07:38:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='10'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+831ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:38:27 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/847119838.jpg" width="10%" src="./../reports/images/847119838.jpg" data-src="./../reports/images/847119838.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:38:27 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 12, 2018 07:38:28 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 12, 2018 07:38:28 PM</span>
+	<span class='label end-time'>May 12, 2018 07:38:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='12'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+836ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:38:31 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/286047566.jpg" width="10%" src="./../reports/images/286047566.jpg" data-src="./../reports/images/286047566.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:38:32 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 10:06:13 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 10:06:13 AM</span>
+	<span class='label end-time'>May 13, 2018 10:06:34 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='14'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+839ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:18 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/198967890.jpg" width="10%" src="./../reports/images/198967890.jpg" data-src="./../reports/images/198967890.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:19 AM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (304ea90555ccce25ec52eea8c0a9c0c9)] -&gt; id: username]<img data-featherlight="./../reports/images/25742090.jpg" width="10%" src="./../reports/images/25742090.jpg" data-src="./../reports/images/25742090.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:20 AM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (304ea90555ccce25ec52eea8c0a9c0c9)] -&gt; id: password]<img data-featherlight="./../reports/images/386888361.jpg" width="10%" src="./../reports/images/386888361.jpg" data-src="./../reports/images/386888361.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:21 AM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/41127358.jpg" width="10%" src="./../reports/images/41127358.jpg" data-src="./../reports/images/41127358.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:25 AM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/450414543.jpg" width="10%" src="./../reports/images/450414543.jpg" data-src="./../reports/images/450414543.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:28 AM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/315099291.jpg" width="10%" src="./../reports/images/315099291.jpg" data-src="./../reports/images/315099291.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:29 AM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/326804766.jpg" width="10%" src="./../reports/images/326804766.jpg" data-src="./../reports/images/326804766.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:30 AM</td>
+													<td class='step-details'>The data: IBM entered successfully in the field :[[ChromeDriver: chrome on XP (304ea90555ccce25ec52eea8c0a9c0c9)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/581442579.jpg" width="10%" src="./../reports/images/581442579.jpg" data-src="./../reports/images/581442579.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:30 AM</td>
+													<td class='step-details'>The data: Abhinav entered successfully in the field :[[ChromeDriver: chrome on XP (304ea90555ccce25ec52eea8c0a9c0c9)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/372409244.jpg" width="10%" src="./../reports/images/372409244.jpg" data-src="./../reports/images/372409244.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:31 AM</td>
+													<td class='step-details'>The data: V entered successfully in the field :[[ChromeDriver: chrome on XP (304ea90555ccce25ec52eea8c0a9c0c9)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/470116403.jpg" width="10%" src="./../reports/images/470116403.jpg" data-src="./../reports/images/470116403.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:33 AM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/38780257.jpg" width="10%" src="./../reports/images/38780257.jpg" data-src="./../reports/images/38780257.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:34 AM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 10:06:34 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 10:06:34 AM</span>
+	<span class='label end-time'>May 13, 2018 10:06:53 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='16'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+844ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:39 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/506445415.jpg" width="10%" src="./../reports/images/506445415.jpg" data-src="./../reports/images/506445415.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:40 AM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (68c22879d7628915b3dd4f14fe7eb470)] -&gt; id: username]<img data-featherlight="./../reports/images/286635667.jpg" width="10%" src="./../reports/images/286635667.jpg" data-src="./../reports/images/286635667.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:40 AM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (68c22879d7628915b3dd4f14fe7eb470)] -&gt; id: password]<img data-featherlight="./../reports/images/786156222.jpg" width="10%" src="./../reports/images/786156222.jpg" data-src="./../reports/images/786156222.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:41 AM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/500143780.jpg" width="10%" src="./../reports/images/500143780.jpg" data-src="./../reports/images/500143780.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:45 AM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/153681334.jpg" width="10%" src="./../reports/images/153681334.jpg" data-src="./../reports/images/153681334.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:47 AM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/530839092.jpg" width="10%" src="./../reports/images/530839092.jpg" data-src="./../reports/images/530839092.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:48 AM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/443768521.jpg" width="10%" src="./../reports/images/443768521.jpg" data-src="./../reports/images/443768521.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:49 AM</td>
+													<td class='step-details'>The data: TCS entered successfully in the field :[[ChromeDriver: chrome on XP (68c22879d7628915b3dd4f14fe7eb470)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/22233471.jpg" width="10%" src="./../reports/images/22233471.jpg" data-src="./../reports/images/22233471.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:50 AM</td>
+													<td class='step-details'>The data: Muthu entered successfully in the field :[[ChromeDriver: chrome on XP (68c22879d7628915b3dd4f14fe7eb470)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/423074135.jpg" width="10%" src="./../reports/images/423074135.jpg" data-src="./../reports/images/423074135.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:50 AM</td>
+													<td class='step-details'>The data: P entered successfully in the field :[[ChromeDriver: chrome on XP (68c22879d7628915b3dd4f14fe7eb470)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/413655926.jpg" width="10%" src="./../reports/images/413655926.jpg" data-src="./../reports/images/413655926.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:52 AM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/273166418.jpg" width="10%" src="./../reports/images/273166418.jpg" data-src="./../reports/images/273166418.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:06:53 AM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 10:22:33 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 10:22:33 AM</span>
+	<span class='label end-time'>May 13, 2018 10:22:36 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='18'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+849ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:22:36 AM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 10:22:36 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 10:22:36 AM</span>
+	<span class='label end-time'>May 13, 2018 10:22:39 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='20'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+849ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:22:39 AM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 02:05:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 02:05:09 PM</span>
+	<span class='label end-time'>May 13, 2018 02:05:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='22'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+854ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:13 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/751475385.jpg" width="10%" src="./../reports/images/751475385.jpg" data-src="./../reports/images/751475385.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:14 PM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (13b7868e2b3c759395bc2f421e2e6c7f)] -&gt; id: username]<img data-featherlight="./../reports/images/872552057.jpg" width="10%" src="./../reports/images/872552057.jpg" data-src="./../reports/images/872552057.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:14 PM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (13b7868e2b3c759395bc2f421e2e6c7f)] -&gt; id: password]<img data-featherlight="./../reports/images/791871882.jpg" width="10%" src="./../reports/images/791871882.jpg" data-src="./../reports/images/791871882.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:16 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/429360885.jpg" width="10%" src="./../reports/images/429360885.jpg" data-src="./../reports/images/429360885.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:18 PM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/344848378.jpg" width="10%" src="./../reports/images/344848378.jpg" data-src="./../reports/images/344848378.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:20 PM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/675938526.jpg" width="10%" src="./../reports/images/675938526.jpg" data-src="./../reports/images/675938526.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:21 PM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/157256492.jpg" width="10%" src="./../reports/images/157256492.jpg" data-src="./../reports/images/157256492.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:22 PM</td>
+													<td class='step-details'>The data: IBM entered successfully in the field :[[ChromeDriver: chrome on XP (13b7868e2b3c759395bc2f421e2e6c7f)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/613348477.jpg" width="10%" src="./../reports/images/613348477.jpg" data-src="./../reports/images/613348477.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:22 PM</td>
+													<td class='step-details'>The data: Abhinav entered successfully in the field :[[ChromeDriver: chrome on XP (13b7868e2b3c759395bc2f421e2e6c7f)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/396045486.jpg" width="10%" src="./../reports/images/396045486.jpg" data-src="./../reports/images/396045486.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:23 PM</td>
+													<td class='step-details'>The data: V entered successfully in the field :[[ChromeDriver: chrome on XP (13b7868e2b3c759395bc2f421e2e6c7f)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/454981892.jpg" width="10%" src="./../reports/images/454981892.jpg" data-src="./../reports/images/454981892.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:25 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/794142676.jpg" width="10%" src="./../reports/images/794142676.jpg" data-src="./../reports/images/794142676.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:25 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 02:05:26 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 02:05:26 PM</span>
+	<span class='label end-time'>May 13, 2018 02:05:40 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='24'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+859ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:28 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/196740934.jpg" width="10%" src="./../reports/images/196740934.jpg" data-src="./../reports/images/196740934.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:29 PM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (de385be02364f3ce1a4c2f13162a8a2c)] -&gt; id: username]<img data-featherlight="./../reports/images/386947718.jpg" width="10%" src="./../reports/images/386947718.jpg" data-src="./../reports/images/386947718.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:29 PM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (de385be02364f3ce1a4c2f13162a8a2c)] -&gt; id: password]<img data-featherlight="./../reports/images/307966932.jpg" width="10%" src="./../reports/images/307966932.jpg" data-src="./../reports/images/307966932.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:30 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/42210047.jpg" width="10%" src="./../reports/images/42210047.jpg" data-src="./../reports/images/42210047.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:33 PM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/272289404.jpg" width="10%" src="./../reports/images/272289404.jpg" data-src="./../reports/images/272289404.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:34 PM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/689290169.jpg" width="10%" src="./../reports/images/689290169.jpg" data-src="./../reports/images/689290169.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:36 PM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/721367562.jpg" width="10%" src="./../reports/images/721367562.jpg" data-src="./../reports/images/721367562.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:36 PM</td>
+													<td class='step-details'>The data: TCS entered successfully in the field :[[ChromeDriver: chrome on XP (de385be02364f3ce1a4c2f13162a8a2c)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/15687125.jpg" width="10%" src="./../reports/images/15687125.jpg" data-src="./../reports/images/15687125.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:37 PM</td>
+													<td class='step-details'>The data: Muthu entered successfully in the field :[[ChromeDriver: chrome on XP (de385be02364f3ce1a4c2f13162a8a2c)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/617026002.jpg" width="10%" src="./../reports/images/617026002.jpg" data-src="./../reports/images/617026002.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:37 PM</td>
+													<td class='step-details'>The data: P entered successfully in the field :[[ChromeDriver: chrome on XP (de385be02364f3ce1a4c2f13162a8a2c)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/493559939.jpg" width="10%" src="./../reports/images/493559939.jpg" data-src="./../reports/images/493559939.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:39 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/701776637.jpg" width="10%" src="./../reports/images/701776637.jpg" data-src="./../reports/images/701776637.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:05:40 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 05:58:00 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 05:58:00 PM</span>
+	<span class='label end-time'>May 13, 2018 05:58:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:19 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='26'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 25s+866ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:03 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/459882056.jpg" width="10%" src="./../reports/images/459882056.jpg" data-src="./../reports/images/459882056.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:03 PM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (d755954467bf025aba82d08e5652ab46)] -&gt; id: username]<img data-featherlight="./../reports/images/342537040.jpg" width="10%" src="./../reports/images/342537040.jpg" data-src="./../reports/images/342537040.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:04 PM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (d755954467bf025aba82d08e5652ab46)] -&gt; id: password]<img data-featherlight="./../reports/images/502156353.jpg" width="10%" src="./../reports/images/502156353.jpg" data-src="./../reports/images/502156353.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:05 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/755633454.jpg" width="10%" src="./../reports/images/755633454.jpg" data-src="./../reports/images/755633454.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:07 PM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/548886238.jpg" width="10%" src="./../reports/images/548886238.jpg" data-src="./../reports/images/548886238.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:09 PM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/270086809.jpg" width="10%" src="./../reports/images/270086809.jpg" data-src="./../reports/images/270086809.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:10 PM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/22907217.jpg" width="10%" src="./../reports/images/22907217.jpg" data-src="./../reports/images/22907217.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:11 PM</td>
+													<td class='step-details'>The data: IBM entered successfully in the field :[[ChromeDriver: chrome on XP (d755954467bf025aba82d08e5652ab46)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/55011715.jpg" width="10%" src="./../reports/images/55011715.jpg" data-src="./../reports/images/55011715.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:11 PM</td>
+													<td class='step-details'>The data: Abhinav entered successfully in the field :[[ChromeDriver: chrome on XP (d755954467bf025aba82d08e5652ab46)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/25132972.jpg" width="10%" src="./../reports/images/25132972.jpg" data-src="./../reports/images/25132972.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:11 PM</td>
+													<td class='step-details'>The data: V entered successfully in the field :[[ChromeDriver: chrome on XP (d755954467bf025aba82d08e5652ab46)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/339325476.jpg" width="10%" src="./../reports/images/339325476.jpg" data-src="./../reports/images/339325476.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:13 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/749950663.jpg" width="10%" src="./../reports/images/749950663.jpg" data-src="./../reports/images/749950663.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:14 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>Create a Lead in LeafTaps Application</span>
+						<span class='test-time'>May 13, 2018 05:58:14 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 13, 2018 05:58:14 PM</span>
+	<span class='label end-time'>May 13, 2018 05:58:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+0ms</span>
+</div>
+	<div class='test-desc'>./src/test/java/features/CreateLead.feature:20 </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='28'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Create a Lead in LeafTaps Application</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:18:39 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>336h 20m 12s+871ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:17 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/96191473.jpg" width="10%" src="./../reports/images/96191473.jpg" data-src="./../reports/images/96191473.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:17 PM</td>
+													<td class='step-details'>The data: DemoCSR entered successfully in the field :[[ChromeDriver: chrome on XP (2054ae9f67af3bd6f68ecf9448fa7004)] -&gt; id: username]<img data-featherlight="./../reports/images/112367335.jpg" width="10%" src="./../reports/images/112367335.jpg" data-src="./../reports/images/112367335.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:17 PM</td>
+													<td class='step-details'>The data: crmsfa entered successfully in the field :[[ChromeDriver: chrome on XP (2054ae9f67af3bd6f68ecf9448fa7004)] -&gt; id: password]<img data-featherlight="./../reports/images/191238420.jpg" width="10%" src="./../reports/images/191238420.jpg" data-src="./../reports/images/191238420.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:19 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/560166290.jpg" width="10%" src="./../reports/images/560166290.jpg" data-src="./../reports/images/560166290.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:21 PM</td>
+													<td class='step-details'>The element CRM/SFA is clicked<img data-featherlight="./../reports/images/179017689.jpg" width="10%" src="./../reports/images/179017689.jpg" data-src="./../reports/images/179017689.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:22 PM</td>
+													<td class='step-details'>The element Leads is clicked<img data-featherlight="./../reports/images/312046306.jpg" width="10%" src="./../reports/images/312046306.jpg" data-src="./../reports/images/312046306.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:24 PM</td>
+													<td class='step-details'>The element Create Lead is clicked<img data-featherlight="./../reports/images/790795710.jpg" width="10%" src="./../reports/images/790795710.jpg" data-src="./../reports/images/790795710.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:24 PM</td>
+													<td class='step-details'>The data: TCS entered successfully in the field :[[ChromeDriver: chrome on XP (2054ae9f67af3bd6f68ecf9448fa7004)] -&gt; id: createLeadForm_companyName]<img data-featherlight="./../reports/images/25871904.jpg" width="10%" src="./../reports/images/25871904.jpg" data-src="./../reports/images/25871904.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:24 PM</td>
+													<td class='step-details'>The data: Muthu entered successfully in the field :[[ChromeDriver: chrome on XP (2054ae9f67af3bd6f68ecf9448fa7004)] -&gt; id: createLeadForm_firstName]<img data-featherlight="./../reports/images/564809980.jpg" width="10%" src="./../reports/images/564809980.jpg" data-src="./../reports/images/564809980.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:25 PM</td>
+													<td class='step-details'>The data: P entered successfully in the field :[[ChromeDriver: chrome on XP (2054ae9f67af3bd6f68ecf9448fa7004)] -&gt; id: createLeadForm_lastName]<img data-featherlight="./../reports/images/603996198.jpg" width="10%" src="./../reports/images/603996198.jpg" data-src="./../reports/images/603996198.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:26 PM</td>
+													<td class='step-details'>The element is clicked<img data-featherlight="./../reports/images/222563107.jpg" width="10%" src="./../reports/images/222563107.jpg" data-src="./../reports/images/222563107.jpg"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:58:27 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='29'>
+					<div class='test-heading'>
+						<span class='test-name'>TC001_CreateLead</span>
+						<span class='test-time'>May 27, 2018 06:18:39 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>May 27, 2018 06:18:39 PM</span>
+	<span class='label end-time'>May 27, 2018 06:20:17 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 37s+926ms</span>
+</div>
+	<div class='test-desc'>Creating a Account in PayPal </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='30'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Leads</h5>
+						<span class="node-time label grey lighten-1 white-text">May 27, 2018 06:20:17 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 1m 37s+36ms</span>
+						<span class='test-status right pass'>pass</span>
+								<span class='category label white-text'>Smoke</span>
+								<span class='author label white-text'>Abhinav</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:20:05 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight='./../reports/images/117706083.jpg' width='10%' src='./../reports/images/117706083.jpg' data-src='./../reports/images/117706083.jpg'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:20:14 PM</td>
+													<td class='step-details'>The element Sign Up is clicked<img data-featherlight='./../reports/images/683761777.jpg' width='10%' src='./../reports/images/683761777.jpg' data-src='./../reports/images/683761777.jpg'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>6:20:17 PM</td>
+													<td class='step-details'>The opened browsers are closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Smoke</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 27, 2018 06:18:40 PM</td>
+										<td class='linked' test-id='30'>TC001_CreateLead.Leads</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>Abhinav</span>
+                                <span class='author-status right'>
+                                        <span class='label pass'>1</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 1</span>
+                                    
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>May 27, 2018 06:18:40 PM</td>
+                                                <td class='linked' test-id='30'>TC001_CreateLead.Leads</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>15</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>89</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>May 27, 2018 06:18:39 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>May 27, 2018 06:20:17 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 1m 38s+451ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>Smoke</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 15,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 89,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
