@@ -21,13 +21,13 @@ public class testCasePaypal extends ProjectMethods{
 		public void payPal(String email,String pwd,String country) {
 			
 			new signUpPage()
-			.clickSignUp()
-			.clickNextButton()
-			.selectdropDown(country)
-			.enterEmail(email)
-			.enterPassword(pwd)
-			.reenterPassword(pwd)
-			.clickNext2();
+			.clickSignUp();
+//			.clickNextButton()
+//			.selectdropDown(country)
+//			.enterEmail(email)
+//			.enterPassword(pwd)
+//			.reenterPassword(pwd)
+//			.clickNext2();
 		
 			
 		}
